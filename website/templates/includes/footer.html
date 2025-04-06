@@ -1,0 +1,19 @@
+{% load navigation_tags %}
+
+<footer>
+    
+   {% with instagram_url=settings.base.NavigationSettings.instagram_url %}
+        {% if instagram_url %}
+            <p>
+                Follow me on&nbsp;
+                {% if instagram_url %}
+                    <a href="{{ instagram }}">Instagram</a>
+                {% endif %}
+            </p>
+        {% endif %}
+    {% endwith %}
+    
+    {% get_footer_text %}
+    
+    <p>Website by <a href="http://www.peachtreepeartree.com">peach-tree, pear-tree</a> using <a href="http://www.wagtail.org">Wagtail</a>.</p>
+</footer>

@@ -1,0 +1,51 @@
+{% load wagtailcore_tags navigation_tags wagtailuserbar %}
+
+<a href="#main" class="skip-link" "print-hide" title="Skip to content">Skip to content</a>
+
+<header>
+    
+    {% get_site_root as site_root %}
+        <a class="link-home" title="Return to the homepage" aria-label="Return to the homepage" href="{% pageurl site_root %}">Clare Archibald</a>
+    
+    <nav class="desktop" "print-hide">
+        {% for menuitem in site_root.get_children.live.in_menu %}
+            <a aria-label="{{ menuitem.title }}" title="{{ menuitem.title}}"  href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+            {% if not forloop.last %} | {% endif %}
+        {% endfor %}
+    </nav>
+    
+    <div class="mobilenav" "print-hide">
+        
+    <button class="hamburger hamburger--squeeze" type="button" aria-label="Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+      
+    <div id="mobileMenu" class="mobile-menu" "print-hide">
+        <nav class="mobile" "print-hide">
+            <ul list-style="none" role ="navigation" class="print-hide">
+                {% for menuitem in site_root.get_children.live.in_menu %}
+                <li><a aria-label="{{ menuitem.title }}" title="{{ menuitem.title}}"  href="{% pageurl menuitem %}">{{ menuitem.title }}</a></li>
+            {% if not forloop.last %} {% endif %}
+        {% endfor %}
+                
+        
+            </ul>
+          </nav>
+        </div>
+    </div>
+    
+    <script type="application/javascript">
+        var hamburger = document.querySelector(".hamburger");
+        var nav = document.querySelector(".mobile");
+            // On click
+            hamburger.addEventListener("click", function() {
+            // Toggle class
+            hamburger.classList.toggle("is-active");
+            nav.classList.toggle("mobile-open");
+        });
+</script>
+    
+    {% wagtailuserbar "top-right" %}
+</header>

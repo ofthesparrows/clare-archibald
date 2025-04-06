@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <div class="homepage-flex-desktop">
+        <div class="homepage-text">
+            <h1>{{page.title }}</h1>
+        
+            {% if page.hero_text %}
+            <h2 class="hero-text">{{ page.hero_text }}</h2>
+            {% endif %}
+        
+            <div class="page-body-text-column">{{ page.body|richtext }}</div>
+         </div>
+        
+        <div class="homepage-image">{% image page.image fill-1084x612 %}</div>
+        
+        {% if page.hero_cta_link %}
+            <a href="{% pageurl page.hero_cta_link %}">
+                {% firstof page.hero_cta page.hero_cta_link.title %}
+            </a>
+        {% endif %}
+</div>
+
+<div class="homepage-flex-mobile">
+    <div class="homepage-image">{% image page.image fill-1084x612 %}
+    </div>
+    
+    <div class="homepage-text">
+         <h1>{{page.title }}</h1>
+        
+            {% if page.hero_text %}
+            <h2 class="hero-text">{{ page.hero_text }}</h2>
+            {% endif %}
+        
+            <div class="page-body-text-column">{{ page.body|richtext }}</div>
+    </div>
+</div>
+{% endblock %}
