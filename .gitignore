@@ -1,2 +1,4 @@
 sshkey.txt
 sshkey.txt.pub
+/website/settings/__pycache__
+.DS_Store
