@@ -21,9 +21,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-load_dotenv()
-postgres_password = os.getenv('POSTGRES_PASSWORD')
-DEBUG = postgres_password is None
 
 # Application definition
 
