@@ -10,10 +10,11 @@ load_dotenv()
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = 
-    ['localhost',
+ALLOWED_HOSTS = [
+    '*',
+    'localhost',
     '206.189.112.151',
-     '206.189.112.151:8000',
+    '206.189.112.151:8000',
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
