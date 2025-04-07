@@ -13,6 +13,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 ALLOWED_HOSTS = 
     ['localhost',
     '206.189.112.151',
+     '206.189.112.151:8000',
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
